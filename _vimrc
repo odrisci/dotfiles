@@ -93,8 +93,8 @@ map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " open/close the quickfix window
-nmap <leader>c :copen<CR>
-nmap <leader>cc :cclose<CR>
+" nmap <leader>c :copen<CR>
+" nmap <leader>cc :cclose<CR>
 
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
@@ -283,7 +283,9 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
 
-
+" SPL etc
+autocmd BufNewFile,BufRead *.cgt setlocal ft=cgt
+autocmd BufNewFile,BufRead *.spl setlocal ft=spl
 
 " Add the virtualenv's site-packages to vim path
 if has('python')

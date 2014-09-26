@@ -1,3 +1,15 @@
+# Setup for InfoSphere Streams
+source /opt/ibm/InfoSphereStreams/bin/streamsprofile.sh -s
+
+#export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64
+export JAVA_HOME=/opt/ibm/InfoSphereStreams/java
+
+export M2_HOME=/usr/local/apache-maven/apache-maven-3.2.1
+
+export M2=$M2_HOME/bin
+
+export PATH=$M2:$JAVA_HOME/bin:$PATH
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -138,7 +150,7 @@ if [ "$venwrap" != "" ]; then
     source $venwrap
 fi
 
-alias vim="emacs"
+# alias vim="emacs"
 
 PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONSTARTUP
@@ -157,8 +169,8 @@ parse_svn_repository_root() {
   svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
 set -o vi
-export EDITOR="emacs"
-export GIT_EDITOR="emacs"
+export EDITOR="vim"
+export GIT_EDITOR="vim"
 
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "

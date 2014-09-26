@@ -1,6 +1,6 @@
 [user]
-    name = John Anderson
-    email = sontek@gmail.com
+    name = Cillian O'Driscoll
+    email = cillian.odriscoll@gmail.com
 
 [color]
     diff = auto
@@ -12,7 +12,7 @@
     default = matching
 
 [core]
-    editor = emacs
+    editor = vim 
     pager = less -R
 
 [alias]
@@ -28,3 +28,9 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
 
+#[url "https://"]
+#	insteadOf = git://
+[http]
+	postBuffer = 2M
+	proxy = http://143.239.132.1:8888
+[https]
