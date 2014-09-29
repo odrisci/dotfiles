@@ -32,5 +32,5 @@
 #	insteadOf = git://
 [http]
 	postBuffer = 2M
-	proxy = http://143.239.132.1:8888
+    #proxy = http://143.239.132.1:8888
 [https]
