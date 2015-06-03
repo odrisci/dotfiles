@@ -286,6 +286,7 @@ let g:pyflakes_use_quickfix = 0
 " SPL etc
 autocmd BufNewFile,BufRead *.cgt setlocal ft=cgt
 autocmd BufNewFile,BufRead *.spl setlocal ft=spl
+autocmd BufNewFile,BufRead *.splmm setlocal ft=splmm
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
