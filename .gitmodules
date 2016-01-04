@@ -79,3 +79,9 @@
 [submodule "_vim/bundle/vim-fugitive"]
 	path = _vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "_vim/bundle/vim-instant-markdown"]
+	path = _vim/bundle/vim-instant-markdown
+	url = https://github.com/suan/vim-instant-markdown.git
+[submodule "_vim/bundle/Vundle.vim"]
+	path = _vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git

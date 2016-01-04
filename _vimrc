@@ -90,7 +90,7 @@ nmap <silent><Leader>te <Esc>:Pytest error<CR>
 map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 
 " Reload Vimrc
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " open/close the quickfix window
 " nmap <leader>c :copen<CR>
@@ -134,6 +134,23 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-scripts/OmniCppComplete'
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'vim-scripts/vimprj'
+Plugin 'vim-scripts/DfrankUtil'
+Plugin 'jalcine/cmake.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+let g:indexer_vimExecutable='gvim'
 " ==========================================================
 " Basic Settings
 " ==========================================================
@@ -156,7 +173,7 @@ set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 
-set grepprg=ack         " replace the default grep program with ack
+"set grepprg=ack         " replace the default grep program with ack
 
 
 " Set working directory
@@ -168,7 +185,7 @@ nnoremap <leader>. :lcd %:p:h<CR>
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
-set completeopt=menuone,longest,preview
+set completeopt=menuone,menu,longest,preview
 set pumheight=6             " Keep a small completion window
 
 
@@ -239,7 +256,7 @@ if has("gui_running")
     set guioptions-=T
 endif
 
-colorscheme molokai
+colorscheme solarized
 
 " Paste from clipboard
 map <leader>p "+p
@@ -287,6 +304,23 @@ let g:pyflakes_use_quickfix = 0
 autocmd BufNewFile,BufRead *.cgt setlocal ft=cgt
 autocmd BufNewFile,BufRead *.spl setlocal ft=spl
 autocmd BufNewFile,BufRead *.splmm setlocal ft=splmm
+
+" C/C++
+au FileType c,cpp set omnifunc=omni#cpp#complete#Main
+
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/boost
+
+"OmniCppComplete
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " Show function params
+let OmniCpp_MayCompleteDot = 1
+let OmniCpp_MayCompleteArrow = 1
+let OmniCpp_MayCompleteScope = 1
+
+let g:syntastic_check_on_open = 1
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
